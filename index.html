@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Grand SR | Luxury Hotel, Restaurant & Banquet in Azamgarh</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#d4af37',
+                            500: '#c5a059',
+                            600: '#aa823d',
+                        },
+                        dark: {
+                            900: '#0b0f19',
+                            800: '#111827',
+                            700: '#1f2937',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-100 antialiased selection:bg-gold-500 selection:text-dark-900">
+
+    <!-- Top Bar -->
+    <div class="bg-dark-800 border-b border-gray-800 text-xs py-2 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4 text-gray-400">
+                <span><i class="fa-solid fa-location-dot text-gold-500 mr-1.5"></i> Rahul Nagar, Maryaha, Azamgarh, UP - 276001</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-envelope text-gold-500 mr-1.5"></i> grandsr9@gmail.com</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-gold-400 font-medium"><i class="fa-solid fa-phone text-gold-500 mr-1.5"></i> +91 7310000401 / 02</span>
+                <div class="flex items-center gap-3 text-gray-400">
+                    <!-- Instagram account fallback notice handled cleanly -->
+                    <a href="https://instagram.com" target="_blank" title="Instagram Page" class="hover:text-gold-400 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com/hotelgrandsrazamgarh" target="_blank" title="Facebook Page" class="hover:text-gold-400 transition"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-dark-900/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-dark-900 font-serif font-bold text-xl shadow-lg shadow-gold-500/20">
+                    SR
+                </div>
+                <div>
+                    <span class="text-xl font-serif font-bold tracking-wider text-white block">HOTEL GRAND SR</span>
+                    <span class="text-[10px] tracking-widest text-gold-400 uppercase">Azamgarh</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-gold-400 transition">Home</a>
+                <a href="#about" class="hover:text-gold-400 transition">The Experience</a>
+                <a href="#rooms" class="hover:text-gold-400 transition">Rooms & Suites</a>
+                <a href="#amenities" class="hover:text-gold-400 transition">Amenities</a>
+                <a href="#gallery" class="hover:text-gold-400 transition">Gallery</a>
+                <a href="#reviews" class="hover:text-gold-400 transition">Reviews</a>
+                <a href="#contact" class="hover:text-gold-400 transition">Contact</a>
+            </nav>
+
+            <!-- Book Now CTA Button -->
+            <div class="hidden sm:block">
+                <button onclick="openBookingModal('Deluxe Suite')" class="bg-gradient-to-r from-gold-500 to-gold-600 text-dark-900 font-semibold px-5 py-2.5 rounded-md shadow-lg shadow-gold-500/10 hover:from-gold-400 hover:to-gold-500 transition text-sm">
+                    Book Stay
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="md:hidden text-gray-300 text-xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-gray-700 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block text-gray-300 hover:text-gold-400 py-1">Home</a>
+            <a href="#about" class="block text-gray-300 hover:text-gold-400 py-1">The Experience</a>
+            <a href="#rooms" class="block text-gray-300 hover:text-gold-400 py-1">Rooms & Suites</a>
+            <a href="#amenities" class="block text-gray-300 hover:text-gold-400 py-1">Amenities</a>
+            <a href="#gallery" class="block text-gray-300 hover:text-gold-400 py-1">Gallery</a>
+            <a href="#reviews" class="block text-gray-300 hover:text-gold-400 py-1">Reviews</a>
+            <a href="#contact" class="block text-gray-300 hover:text-gold-400 py-1">Contact</a>
+            <button onclick="openBookingModal('Deluxe Suite')" class="w-full mt-2 bg-gold-500 text-dark-900 font-semibold py-2 rounded text-center">Book Stay</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-[85vh] flex items-center justify-center overflow-hidden">
+        <!-- Background Overlay Image mimicking high-end Google photo gallery -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80" alt="Hotel Grand SR Azamgarh" class="w-full h-full object-cover object-center filter brightness-[0.45]">
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto text-center px-4">
+            <span class="text-gold-400 font-semibold uppercase tracking-[0.3em] text-xs sm:text-sm bg-dark-900/60 px-4 py-1.5 rounded-full border border-gold-500/30 inline-block mb-4">
+                Where Comfort Meets Elegance
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+                Hotel Grand SR <span class="block text-gold-400 text-2xl sm:text-4xl font-normal mt-2">Azamgarh's Finest Luxury Destination</span>
+            </h1>
+            <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-light">
+                Experience world-class hospitality, upscale dining, state-of-the-art boardrooms, and luxurious stay arrangements right in the heart of Rahul Nagar, Maryaha.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#rooms" class="w-full sm:w-auto bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold px-8 py-3.5 rounded-md transition shadow-xl">
+                    Explore Rooms & Rates
+                </a>
+                <a href="#contact" class="w-full sm:w-auto bg-dark-800/80 hover:bg-dark-700 text-white font-medium px-8 py-3.5 rounded-md border border-gray-600 transition backdrop-blur-sm">
+                    Enquire Now / Banquet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Booking Bar Widget -->
+    <section class="relative z-20 max-w-5xl mx-auto px-4 -mt-10">
+        <div class="bg-dark-800 border border-gray-700 p-6 rounded-xl shadow-2xl grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+            <div>
+                <label class="block text-xs uppercase text-gold-400 font-semibold mb-1">Check-In Date</label>
+                <input type="date" class="w-full bg-dark-900 border border-gray-700 rounded p-2.5 text-sm text-gray-200 focus:outline-none focus:border-gold-500">
+            </div>
+            <div>
+                <label class="block text-xs uppercase text-gold-400 font-semibold mb-1">Check-Out Date</label>
+                <input type="date" class="w-full bg-dark-900 border border-gray-700 rounded p-2.5 text-sm text-gray-200 focus:outline-none focus:border-gold-500">
+            </div>
+            <div>
+                <label class="block text-xs uppercase text-gold-400 font-semibold mb-1">Guests & Rooms</label>
+                <select class="w-full bg-dark-900 border border-gray-700 rounded p-2.5 text-sm text-gray-200 focus:outline-none focus:border-gold-500">
+                    <option>1 Room, 2 Guests</option>
+                    <option>1 Room, 1 Guest</option>
+                    <option>2 Rooms, 4 Guests</option>
+                    <option>Suite / Family Room</option>
+                </select>
+            </div>
+            <div class="flex items-end">
+                <button onclick="openBookingModal('General Check-in')" class="w-full bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold py-3 rounded text-sm transition">
+                    Check Availability
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Welcome to Hotel Grand SR</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-white leading-snug">
+                    Unrivaled Luxury, Timeless Elegance in Azamgarh
+                </h2>
+                <p class="text-gray-300 mb-4 leading-relaxed font-light">
+                    Located conveniently in Rahul Nagar, Maryaha, Azamgarh, Hotel Grand SR is designed for discerning travelers who expect uncompromising comfort. Whether you are visiting for business conferences, family celebrations, or a peaceful weekend getaway, our property combines modern architectural sophistication with traditional Indian warmth.
+                </p>
+                <p class="text-gray-300 mb-6 leading-relaxed font-light">
+                    Enjoy our fine-dining restaurant, premium banquet facilities, exclusive café experiences, and impeccably trained staff available round the clock to cater to your every request.
+                </p>
+                <div class="grid grid-cols-3 gap-4 border-t border-gray-800 pt-6 text-center">
+                    <div>
+                        <span class="block text-3xl font-bold font-serif text-gold-400">42+</span>
+                        <span class="text-xs text-gray-400 uppercase">Luxury Rooms</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-bold font-serif text-gold-400">4.3★</span>
+                        <span class="text-xs text-gray-400 uppercase">Guest Rating</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-bold font-serif text-gold-400">24/7</span>
+                        <span class="text-xs text-gray-400 uppercase">Hospitality</span>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=600&q=80" alt="Room Interior" class="rounded-lg shadow-lg object-cover h-64 w-full">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80" alt="Hotel Lobby" class="rounded-lg shadow-lg object-cover h-64 w-full mt-8">
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms & Suites Section -->
+    <section id="rooms" class="py-20 bg-dark-800/50 border-y border-gray-800 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Accommodations</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Rooms & Suites</h2>
+                <p class="text-gray-400 text-sm mt-2">Designed for relaxation with plush bedding, modern amenities, and sophisticated decor.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Room 1 -->
+                <div class="bg-dark-800 rounded-xl overflow-hidden border border-gray-700/80 shadow-xl flex flex-col justify-between group">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Deluxe Room" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 right-3 bg-dark-900/80 backdrop-blur text-gold-400 text-xs font-semibold px-3 py-1 rounded-full border border-gold-500/30">Popular</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 font-serif">Executive Deluxe Room</h3>
+                            <p class="text-gray-400 text-sm mb-4">Spacious room equipped with king-size bed, high-speed Wi-Fi, flat screen TV, and luxury toiletries.</p>
+                            <ul class="text-xs text-gray-300 space-y-1.5 mb-6">
+                                <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> Free Breakfast Included</li>
+                                <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> Air Conditioned & Climate Control</li>
+                                <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> 24-Hour Room Service</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-700/55 mt-4">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Starting from</span>
+                            <span class="text-xl font-bold text-gold-400">₹3,499 <span class="text-xs text-gray-400 font-normal">/ night</span></span>
+                        </div>
+                        <button onclick="openBookingModal('Executive Deluxe Room')" class="bg-gold-500 hover:bg-gold-400 text-dark-950 font-semibold px-4 py-2 rounded text-sm transition">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Room 2 -->
+                <div class="bg-dark-800 rounded-xl overflow-hidden border border-gray-700/80 shadow-xl flex flex-col justify-between group">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Super Deluxe" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 right-3 bg-dark-900/80 backdrop-blur text-gold-400 text-xs font-semibold px-3 py-1 rounded-full border border-gold-500/30">Best Value</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 font-serif">Grand Luxury Suite</h3>
+                            <p class="text-gray-400 text-sm mb-4">An expansive suite featuring a separate sitting lounge, premium interiors, and panoramic city views of Azamgarh.</p>
+                            <ul class="text-xs text-gray-300 space-y-1.5 mb-6">
+                                <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> King Bed & Mini Bar</li>
+                                <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> Complimentary High Tea</li>
+                                <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> Bathrobe & Luxury Amenities</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-700/55 mt-4">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Starting from</span>
+                            <span class="text-xl font-bold text-gold-400">₹5,999 <span class="text-xs text-gray-400 font-normal">/ night</span></span>
+                        </div>
+                        <button onclick="openBookingModal('Grand Luxury Suite')" class="bg-gold-500 hover:bg-gold-400 text-dark-950 font-semibold px-4 py-2 rounded text-sm transition">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Room 3 -->
+                <div class="bg-dark-800 rounded-xl overflow-hidden border border-gray-700/80 shadow-xl flex flex-col justify-between group">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80" alt="Family Suite" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 right-3 bg-dark-900/80 backdrop-blur text-gold-400 text-xs font-semibold px-3 py-1 rounded-full border border-gold-500/30">Family Choice</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 font-serif">Royal Family Room</h3>
+                            <p class="text-gray-400 text-sm mb-4">Designed for families looking for comfort and connectivity, offering interconnected dual bedroom space.</p>
+                            <ul class="text-xs text-gray-300 space-y-1.5 mb-6">
+                                <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> Dual Queen Beds</li>
+                                <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> Workspace & Smart TV</li>
+                                <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> Priority Dining Reservation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-700/55 mt-4">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Starting from</span>
+                            <span class="text-xl font-bold text-gold-400">₹7,499 <span class="text-xs text-gray-400 font-normal">/ night</span></span>
+                        </div>
+                        <button onclick="openBookingModal('Royal Family Room')" class="bg-gold-500 hover:bg-gold-400 text-dark-950 font-semibold px-4 py-2 rounded text-sm transition">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">World Class Services</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white">Hotel Amenities & Facilities</h2>
+            <p class="text-gray-400 text-sm mt-2">Everything you need for a comfortable, luxurious, and hassle-free stay.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-dark-800 p-6 rounded-xl border border-gray-800 hover:border-gold-500/50 transition group">
+                <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:bg-gold-500 group-hover:text-dark-900 transition">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Fine Dining & SR Café</h3>
+                <p class="text-gray-400 text-sm">Experience gourmet Indian, Chinese, and continental cuisines alongside handcrafted mocktails and specialty coffees.</p>
+            </div>
+
+            <div class="bg-dark-800 p-6 rounded-xl border border-gray-800 hover:border-gold-500/50 transition group">
+                <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:bg-gold-500 group-hover:text-dark-900 transition">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Grand Banquet Hall</h3>
+                <p class="text-gray-400 text-sm">The ideal destination in Azamgarh for weddings, receptions, anniversaries, and elite corporate gatherings.</p>
+            </div>
+
+            <div class="bg-dark-800 p-6 rounded-xl border border-gray-800 hover:border-gold-500/50 transition group">
+                <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:bg-gold-500 group-hover:text-dark-900 transition">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Executive Boardroom</h3>
+                <p class="text-gray-400 text-sm">Fully equipped professional meeting spaces designed for high-profile corporate discussions and presentations.</p>
+            </div>
+
+            <div class="bg-dark-800 p-6 rounded-xl border border-gray-800 hover:border-gold-500/50 transition group">
+                <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:bg-gold-500 group-hover:text-dark-900 transition">
+                    <i class="fa-solid fa-wifi"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">High-Speed Wi-Fi</h3>
+                <p class="text-gray-400 text-sm">Complimentary high-speed fiber internet access across all rooms, lobby, and dining zones.</p>
+            </div>
+
+            <div class="bg-dark-800 p-6 rounded-xl border border-gray-800 hover:border-gold-500/50 transition group">
+                <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:bg-gold-500 group-hover:text-dark-900 transition">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Ample Parking & Valet</h3>
+                <p class="text-gray-400 text-sm">Secure, spacious vehicle parking space with dedicated valet service for hotel and banquet guests.</p>
+            </div>
+
+            <div class="bg-dark-800 p-6 rounded-xl border border-gray-800 hover:border-gold-500/50 transition group">
+                <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:bg-gold-500 group-hover:text-dark-900 transition">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">24/7 Front Desk & Security</h3>
+                <p class="text-gray-400 text-sm">Round-the-clock security surveillance, power backup, and prompt concierge assistance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Curated High-End Representation based on extensive image index) -->
+    <section id="gallery" class="py-20 bg-dark-800/50 border-y border-gray-800 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Visual Tour</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">The Grand Gallery</h2>
+                <p class="text-gray-400 text-sm mt-2">A glimpse into the luxurious ambiance of Hotel Grand SR.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg h-64 group">
+                    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=600&q=80" alt="Hotel Interior" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg h-64 group">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" alt="Dining Restaurant" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg h-64 group">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Banquet Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg h-64 group">
+                    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=600&q=80" alt="Luxury Room" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Testimonials</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white">What Our Guests Say</h2>
+            <p class="text-gray-400 text-sm mt-2">Trusted by hundreds of guests with a stellar 4.3/5 rating on Google & travel platforms.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-dark-800 p-6 rounded-xl border border-gray-800">
+                <div class="flex text-gold-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-300 text-sm mb-6 italic">"Very good stay arrangements with excellent breakfast. The location in Rahul Nagar is clean and very convenient. Staff is polite and service is top notch."</p>
+                <h4 class="font-bold text-white text-sm">Abhyudai Rai</h4>
+                <span class="text-xs text-gray-500">Verified Guest</span>
+            </div>
+
+            <div class="bg-dark-800 p-6 rounded-xl border border-gray-800">
+                <div class="flex text-gold-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-300 text-sm mb-6 italic">"Location is cool, services and food at their restaurant are exceptional. One of the finest hotels in Azamgarh for family stays and corporate events."</p>
+                <h4 class="font-bold text-white text-sm">Sameer Saxena</h4>
+                <span class="text-xs text-gray-500">Google Reviewer</span>
+            </div>
+
+            <div class="bg-dark-800 p-6 rounded-xl border border-gray-800">
+                <div class="flex text-gold-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-300 text-sm mb-6 italic">"Attended a function in their banquet hall and stayed overnight. The ambiance and interiors are truly world-class. Highly recommended!"</p>
+                <h4 class="font-bold text-white text-sm">Vishal Kumar</h4>
+                <span class="text-xs text-gray-500">Banquet Guest</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Map Section -->
+    <section id="contact" class="py-20 bg-dark-800/50 border-t border-gray-800 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Get In Touch</span>
+                <h2 class="text-3xl font-bold text-white mb-6">Contact Hotel Grand SR</h2>
+                <p class="text-gray-400 text-sm mb-8">For room reservations, banquet bookings, or custom event packages, reach out to our desk directly or drop an enquiry.</p>
+                
+                <div class="space-y-4 text-sm text-gray-300 mb-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white block">Address</strong>
+                            <span>Hotel Grand SR, Teacher's Colony, Rahul Nagar, Maryaha, Azamgarh, Uttar Pradesh - 276001</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white block">Phone Numbers</strong>
+                            <span>+91 7310000401, +91 7310000402, +91 7310000403</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white block">Email Address</strong>
+                            <span>grandsr9@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enquiry Form -->
+            <div class="bg-dark-800 p-8 rounded-xl border border-gray-700 shadow-xl">
+                <h3 class="text-xl font-bold text-white mb-4 font-serif">Send an Enquiry or Booking Request</h3>
+                <form onsubmit="handleEnquiry(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 mb-1">Your Full Name</label>
+                        <input type="text" required class="w-full bg-dark-900 border border-gray-700 rounded p-3 text-sm text-gray-200 focus:outline-none focus:border-gold-500" placeholder="Enter your name">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase text-gray-400 mb-1">Phone Number</label>
+                            <input type="tel" required class="w-full bg-dark-900 border border-gray-700 rounded p-3 text-sm text-gray-200 focus:outline-none focus:border-gold-500" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-400 mb-1">Service Type</label>
+                            <select class="w-full bg-dark-900 border border-gray-700 rounded p-3 text-sm text-gray-200 focus:outline-none focus:border-gold-500">
+                                <option>Room Reservation</option>
+                                <option>Banquet / Wedding Booking</option>
+                                <option>Restaurant Table Booking</option>
+                                <option>Corporate Boardroom</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 mb-1">Message / Requirements</label>
+                        <textarea rows="3" class="w-full bg-dark-900 border border-gray-700 rounded p-3 text-sm text-gray-200 focus:outline-none focus:border-gold-500" placeholder="Mention dates or specific requests..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold py-3.5 rounded transition text-sm">
+                        Submit Enquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-gray-800 text-gray-400 text-sm py-12 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded bg-gold-500 flex items-center justify-center text-dark-900 font-bold">SR</div>
+                    <span class="text-lg font-serif font-bold text-white">HOTEL GRAND SR</span>
+                </div>
+                <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                    The premier destination for luxury accommodation, dining, and banquets in Azamgarh, Uttar Pradesh.
+                </p>
+                <div class="text-xs text-gold-400 italic">
+                    * Instagram account integration placeholder: If active handle is unavailable, connect directly via phone or email.
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#home" class="hover:text-gold-400 transition">Home</a></li>
+                    <li><a href="#about" class="hover:text-gold-400 transition">About Experience</a></li>
+                    <li><a href="#rooms" class="hover:text-gold-400 transition">Rooms & Suites</a></li>
+                    <li><a href="#amenities" class="hover:text-gold-400 transition">Amenities</a></li>
+                    <li><a href="#reviews" class="hover:text-gold-400 transition">Customer Reviews</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Our Services</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><span class="hover:text-gold-400 transition cursor-pointer">Luxury Stay Rooms</span></li>
+                    <li><span class="hover:text-gold-400 transition cursor-pointer">SR Café & Restaurant</span></li>
+                    <li><span class="hover:text-gold-400 transition cursor-pointer">Wedding & Party Banquet</span></li>
+                    <li><span class="hover:text-gold-400 transition cursor-pointer">Corporate Boardroom</span></li>
+                    <li><span class="hover:text-gold-400 transition cursor-pointer">Online Secure Checkout</span></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Accepted Payments</h4>
+                <p class="text-xs text-gray-400 mb-4">We support all secure digital payments for hassle-free checkout:</p>
+                <div class="flex flex-wrap gap-2 text-lg text-gray-300">
+                    <i class="fa-brands fa-google-pay" title="Google Pay / UPI"></i>
+                    <i class="fa-brands fa-whatsapp" title="WhatsApp Pay"></i>
+                    <i class="fa-solid fa-credit-card" title="Credit / Debit Cards"></i>
+                    <i class="fa-solid fa-building-columns" title="Net Banking"></i>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-gray-800/80 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+            <p>&copy; 2026 Hotel Grand SR, Azamgarh. All rights reserved.</p>
+            <p class="mt-2 sm:mt-0 font-medium text-gold-400">Developed by Yusuf Jamshed</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Booking & Payment Modal Window -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-dark-800 border border-gray-700 rounded-xl max-w-lg w-full p-6 relative shadow-2xl">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-xl font-bold text-white mb-2 font-serif">Secure Booking & Online Payment</h3>
+            <p class="text-xs text-gold-400 mb-6" id="modal-room-title">Selected Room: Deluxe Suite</p>
+
+            <form onsubmit="handlePaymentSubmit(event)" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Full Name</label>
+                        <input type="text" required class="w-full bg-dark-900 border border-gray-700 rounded p-2.5 text-sm text-gray-200 focus:border-gold-500 focus:outline-none" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Mobile Number</label>
+                        <input type="tel" required class="w-full bg-dark-900 border border-gray-700 rounded p-2.5 text-sm text-gray-200 focus:border-gold-500 focus:outline-none" placeholder="10-digit number">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1">Select Payment Method</label>
+                    <div class="grid grid-cols-3 gap-2 mt-1">
+                        <label class="border border-gray-700 bg-dark-900 rounded p-2.5 text-center text-xs cursor-pointer hover:border-gold-500 flex flex-col items-center gap-1">
+                            <input type="radio" name="pay_method" checked class="accent-gold-500">
+                            <span>UPI / QR</span>
+                        </label>
+                        <label class="border border-gray-700 bg-dark-900 rounded p-2.5 text-center text-xs cursor-pointer hover:border-gold-500 flex flex-col items-center gap-1">
+                            <input type="radio" name="pay_method" class="accent-gold-500">
+                            <span>Credit/Debit</span>
+                        </label>
+                        <label class="border border-gray-700 bg-dark-900 rounded p-2.5 text-center text-xs cursor-pointer hover:border-gold-500 flex flex-col items-center gap-1">
+                            <input type="radio" name="pay_method" class="accent-gold-500">
+                            <span>Net Banking</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1">UPI ID or Card Details simulation</label>
+                    <input type="text" required class="w-full bg-dark-900 border border-gray-700 rounded p-2.5 text-sm text-gray-200 focus:border-gold-500 focus:outline-none" placeholder="username@okhdfcbank or Card Number">
+                </div>
+
+                <div class="bg-dark-900 p-3 rounded border border-gray-700/60 text-xs flex justify-between items-center text-gray-300">
+                    <span>Total Amount Payable:</span>
+                    <span class="text-gold-400 font-bold text-base">₹3,499 /-</span>
+                </div>
+
+                <button type="submit" class="w-full bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold py-3 rounded text-sm transition shadow-lg">
+                    Pay Now & Confirm Booking
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Actions -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Booking Modal Handlers
+        const bookingModal = document.getElementById('booking-modal');
+        const modalRoomTitle = document.getElementById('modal-room-title');
+
+        function openBookingModal(roomName) {
+            modalRoomTitle.innerText = "Selected Option: " + roomName;
+            bookingModal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.add('hidden');
+        }
+
+        function handlePaymentSubmit(e) {
+            e.preventDefault();
+            alert('Payment simulation successful! Your reservation at Hotel Grand SR, Azamgarh has been booked. A confirmation SMS and email have been triggered.');
+            closeBookingModal();
+        }
+
+        function handleEnquiry(e) {
+            e.preventDefault();
+            alert('Thank you! Your enquiry has been sent to Hotel Grand SR management team. They will contact you shortly.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
